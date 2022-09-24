@@ -1,0 +1,201 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+    <RootNamespace>Best_UI_React_App</RootNamespace>
+    <StartupObject></StartupObject>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.6.0" />
+    <PackageReference Include="Azure.Security.KeyVault.Secrets" Version="4.3.0" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.12.0" />
+    <PackageReference Include="MailKit" Version="3.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.6.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.0" />
+    <PackageReference Include="MimeKit" Version="3.4.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Content Remove="$(SpaRoot)**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\build\EmailTemplates\ResetPasswordTemplate.cshtml" />
+    <None Remove="ClientApp\public\EmailTemplates\ResetPasswordTemplate.cshtml" />
+    <None Remove="ClientApp\public\EmailTemplates\WelcomeTemplate.cshtml" />
+    <None Remove="ClientApp\src\components\About.jsx" />
+    <None Remove="ClientApp\src\components\CustomImageList.jsx" />
+    <None Remove="ClientApp\src\components\Directory.jsx" />
+    <None Remove="ClientApp\src\components\Footer.jsx" />
+    <None Remove="ClientApp\src\components\ForgotPassword.jsx" />
+    <None Remove="ClientApp\src\components\ForgotPasswordWithEmail.jsx" />
+    <None Remove="ClientApp\src\components\Header.jsx" />
+    <None Remove="ClientApp\src\components\HomePage.jsx" />
+    <None Remove="ClientApp\src\components\HomePageContent.jsx" />
+    <None Remove="ClientApp\src\components\Learning.jsx" />
+    <None Remove="ClientApp\src\components\Loader.jsx" />
+    <None Remove="ClientApp\src\components\Login.jsx" />
+    <None Remove="ClientApp\src\components\MenuItem.jsx" />
+    <None Remove="ClientApp\src\components\PageNotFound.jsx" />
+    <None Remove="ClientApp\src\components\popup.jsx" />
+    <None Remove="ClientApp\src\components\Profile.jsx" />
+    <None Remove="ClientApp\src\components\ProfilePage.jsx" />
+    <None Remove="ClientApp\src\components\ProfilePageForm.jsx" />
+    <None Remove="ClientApp\src\components\SessionTimeout.jsx" />
+    <None Remove="ClientApp\src\components\SessionTimeoutDialog.jsx" />   
+    <None Remove="ClientApp\src\components\Toggle.jsx" />   
+    <None Remove="ClientApp\src\components\UserDetails.jsx" />   
+    <None Remove="ClientApp\src\context\ColorModeContext.tsx" />
+    <None Remove="ClientApp\src\styles\About-Styles.jsx" />
+    <None Remove="ClientApp\src\styles\Footer-Styles.jsx" />
+    <None Remove="ClientApp\src\styles\HomePage-Styles.jsx" />
+    <None Remove="ClientApp\src\styles\HomePageContent-Styles.jsx" />
+    <None Remove="ClientApp\src\styles\ProfilePage-Styles.scss" />
+    <None Remove="ClientApp\tsconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ClientApp\build\EmailTemplates\ResetPasswordTemplate.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ClientApp\public\EmailTemplates\ResetPasswordTemplate.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ClientApp\public\EmailTemplates\WelcomeTemplate.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ClientApp\tsconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>    
+    <TypeScriptCompile Include="ClientApp\src\components\ForgotPasswordWithEmail.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>    
+    <TypeScriptCompile Include="ClientApp\src\components\ForgotPassword.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>    
+    <TypeScriptCompile Include="ClientApp\src\components\CustomImageList.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>    
+    <TypeScriptCompile Include="ClientApp\src\components\UserDetails.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>    
+    <TypeScriptCompile Include="ClientApp\src\components\PageNotFound.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>    
+    <TypeScriptCompile Include="ClientApp\src\components\ProfilePageForm.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>    
+    <TypeScriptCompile Include="ClientApp\src\components\ProfilePage.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Header.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\SessionTimeoutDialog.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\SessionTimeout.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\About.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\MenuItem.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Footer.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Directory.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\HomePageContent.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\HomePage.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Profile.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\popup.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Login.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Learning.jsx" />
+    <TypeScriptCompile Include="ClientApp\src\context\ColorModeContext.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\styles\ProfilePage-Styles.scss">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\styles\Footer-Styles.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\styles\About-Styles.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\styles\HomePageContent-Styles.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\styles\HomePage-Styles.jsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)build\**; $(SpaRoot)build-ssr\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+</Project>
